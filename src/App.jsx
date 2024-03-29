@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 function App() {
   const [users, setUsers] = useState([])
   const [currentPage, setCurrentPage] = useState(1); 
-  const [userPerPage, setUserPerPage] = useState(10);
+  const [userPerPage] = useState(10);
 
   const getUserDetails = async () => {
     try {
@@ -25,7 +25,7 @@ function App() {
   //calculate the total number of pages.
   const totalPage = Math.ceil(users.length / userPerPage);
 
-  //get the user for current page
+  //get the user for current page.
   const getPaginatedUsers = () => {
     const startIndex = (currentPage - 1) * userPerPage;
     const endIndex = startIndex + userPerPage;
@@ -68,9 +68,9 @@ function App() {
           </tbody>
         </table>
         <div className='pagination'>
-          <button onClick={handlePreviousPage} disabled={currentPage === 1} className='prevPage'>Previous</button>
+          <button onClick={handlePreviousPage} className='prevPage'>Previous</button>
           <div className='pageNo'>{currentPage}</div>
-          <button onClick={handleNextPage} disabled={currentPage === totalPage} className='nextPage'>Next</button>
+          <button onClick={handleNextPage} className='nextPage'>Next</button>
         </div>
       </div>
     </>
