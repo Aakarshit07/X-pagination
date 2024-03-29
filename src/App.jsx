@@ -14,7 +14,7 @@ function App() {
       console.log(dataJson)
     } catch (error) { 
       console.error("failed to fetch data",error);
-      return <alert>failed to fetch data</alert>
+      window.alert("failed to fetch data");
     }  
   }
 
